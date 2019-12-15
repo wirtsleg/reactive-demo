@@ -1,0 +1,18 @@
+version: "3.2"
+
+volumes:
+  reactive-postgres:
+
+services:
+  db:
+    image: postgres:11.3
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: reactive
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespass
+    volumes:
+      - type: volume
+        source: reactive-postgres
+        target: /var/lib/postgresql/data
